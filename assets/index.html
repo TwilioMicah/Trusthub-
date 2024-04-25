@@ -1,0 +1,771 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Customer and Trust Hub Profiles</title>
+   
+    <link
+      rel="icon"
+      href="https://twilio-labs.github.io/function-templates/static/v1/favicon.ico"
+    />
+
+
+    
+   <link
+      rel="stylesheet"
+      href="twilioStyle.css"
+    />
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+ 
+    <style>
+      .success {
+        border-color: #bce8f1;
+        color: #31708f;
+        background-color: #d9edf7;
+      }
+      .warning {
+        color: #c21e1e;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+      }
+    </style>
+  </head>
+  <body onload="mask()">
+    <div class="page-top">
+      <header>
+      
+        <div id="twilio-logo">
+          <a href="https://www.twilio.com/" target="_blank" rel="noopener">
+            <svg
+              class="logo"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewbox="0 0 60 60"
+            >
+              <title>Twilio Logo</title>
+              <path
+                class="cls-1"
+                d="M30,15A15,15,0,1,0,45,30,15,15,0,0,0,30,15Zm0,26A11,11,0,1,1,41,30,11,11,0,0,1,30,41Zm6.8-14.7a3.1,3.1,0,1,1-3.1-3.1A3.12,3.12,0,0,1,36.8,26.3Zm0,7.4a3.1,3.1,0,1,1-3.1-3.1A3.12,3.12,0,0,1,36.8,33.7Zm-7.4,0a3.1,3.1,0,1,1-3.1-3.1A3.12,3.12,0,0,1,29.4,33.7Zm0-7.4a3.1,3.1,0,1,1-3.1-3.1A3.12,3.12,0,0,1,29.4,26.3Z"
+              />
+            </svg>
+          </a>
+        </div>
+      
+        <nav>
+          <span>Your Twilio application</span>
+          
+          <aside>
+            <svg
+              class="icon"
+              role="img"
+              aria-hidden="true"
+              width="100%"
+              height="100%"
+              viewBox="0 0 20 20"
+              aria-labelledby="NewIcon-1577"
+            >
+              <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M6.991 7.507c.003-.679 1.021-.675 1.019.004-.012 2.956 1.388 4.41 4.492 4.48.673.016.66 1.021-.013 1.019-2.898-.011-4.327 1.446-4.48 4.506-.033.658-1.01.639-1.018-.02-.03-3.027-1.382-4.49-4.481-4.486-.675 0-.682-1.009-.008-1.019 3.02-.042 4.478-1.452 4.49-4.484zm.505 2.757l-.115.242c-.459.9-1.166 1.558-2.115 1.976l.176.08c.973.465 1.664 1.211 2.083 2.22l.02.05.088-.192c.464-.973 1.173-1.685 2.123-2.124l.039-.018-.118-.05c-.963-.435-1.667-1.117-2.113-2.034l-.068-.15zm10.357-8.12c.174.17.194.434.058.625l-.058.068-1.954 1.905 1.954 1.908a.482.482 0 010 .694.512.512 0 01-.641.056l-.07-.056-1.954-1.908-1.954 1.908a.511.511 0 01-.71 0 .482.482 0 01-.058-.626l.058-.068 1.954-1.908-1.954-1.905a.482.482 0 010-.693.512.512 0 01.64-.057l.07.057 1.954 1.905 1.954-1.905a.511.511 0 01.71 0z"
+              ></path>
+            </svg>
+            Live
+          </aside>
+         
+        </nav>
+         <nav>
+    <aside>
+      <div>
+          <a href='https://console.twilio.com/us1/develop/functions/services'><h2>Customer and Trust Hub Profiles</h2></a>
+          </div>
+          </aside>
+        </nav>
+      </header>
+    </div>
+    <main>
+      <div class="content">
+        <h1>
+          
+          <img
+            src="https://twilio-labs.github.io/function-templates/static/v1/success.svg"
+          />
+        
+          <div>
+            <p>Welcome!</p>
+            <p>Your live application with Twilio is ready to use!</p>
+          </div>
+        </h1>
+        <br />
+
+<h3> Functionality of each Tool </h3>
+<ul>
+
+<h4>Phone Number(s) and their Linked Profiles</h4>
+<ul>
+<li><p>A bundle type must be selected from the options under the header  <span class="red-text">'Select Bundle Types to Check'. If no other filters are specified, this tool will display all numbers connected to Business + Trust Hub bundles under the parent account and its subaccounts.</span> </p></li>
+
+<li><p>Other filter options are available under the 'Filter Options' checkbox. If selected, an account SID must be specified at the very least. Can add additional filter options if desired. </p></li>
+</ul>
+<h4>Assign Number(s) to Profile(s)</h4>
+<ul>
+<li><p>All requested information must be inputed in order to assign a number to a bundle. This tool can assign multiple numbers to multiple bundles at the same time. You must assign a number to a Business Profile before you can assign it to a Trust Hub Profile. Make sure the order of the inputs reflect this. </p></li>
+</ul>
+<h4>Remove Number(s) from Profile(s)</h4>
+<ul>
+<li><p>All requested information must be inputed in in order to remove a number from a bundle. Multiple numbers can be removed from multiple bundles at the same time.</p></li>
+</ul>
+<h4>Display all Profiles Under Account</h4>
+<ul>
+<li><p>Account SID input is optional. If Account SID is specified, it will only show profiles under the Account SID. If no Account SID is inputed, it will display all profiles under the parent account and its subaccounts.</p></li>
+</ul>
+</ul>
+</br>
+<h3> General Info</h3>
+<ul>
+</li>
+<li><p> Make sure you choose how you want to recieve the data output(download/display).  </p></li>
+<li><p>  <span class="red-text">'Phone Number(s) and their Linked Profiles'</span> AND  <span class="red-text">'Display all Profiles Under Account'</span> do not make any changes on your account. The tool 'reads' the profiles that are already on your account(s) and outputs the requested information. </p></li>
+</li>
+<li><p>
+Because this is a publicly accessible URL that automatically uses your Account SID and auth_token, to limit it's access, please set a password in your Function - open the Function and click on "Environment Variables" in the bottom left corner, and change the value of Password. Click "Deploy All" afterwards in the bottom left corner.</p></li>
+</ul>
+
+<br/>
+<h2> TrustHub and Customer Profile Toolbox </h2>
+            <label for="auth_token"class="password-label">Password:</label>
+                <div class="input-container">
+ <!-- <textarea id="auth_token" name="auth_token" rows="2" cols="35" style="font-size: 17px; border-radius: 4px;resize: none;" placeholder="Enter your Twilio Auth Token."></textarea><br><br> -->
+        <input id="auth_token" for="auth_token" name="auth_token" placeholder="Enter the password." type="password">
+        </div>
+
+    <form id="featureForm">
+        <h4 class="darkbluetile"><input type="checkbox" class="feature-checkbox" name="feature" value="checkLinkedProducts" onclick="toggleTextBoxesAndColor('checkLinkedProducts', this)"> Phone Number(s) and their Linked Profiles</h4><br> 
+        <!-- Textboxes for Check Linked Products -->
+        <div id="checkLinkedProductsTextboxes" class="hidden" style="width: 80%;">
+        <h4> <input id = "filterOptions" type="checkbox"  name="name" value="checkLinkedProducts" onclick="toggleTextBoxes('filter')"> Filter Options(not required)</h4><br> 
+            <div id="filterTextboxes" class="hidden">
+            <h5 class="redfilter-text">Phone Number(s)</h5>
+            
+            <textarea id="phoneNumberInput"  name="phoneNumbers" rows="4" cols="50" style="font-size: 15px;height: 200px; width: 400px;" placeholder="toggle checkbox to search all numbers under the parent account and it's subaccounts"></textarea><br><br>
+            <h5 class="redfilter-text">BundleSID</h5>
+            <input id = "BundleSidcheck" type="text" name="BundleSid">
+
+            <h5 class="redfilter-text">Account SID(required)</h5>
+            <input id = "AccountSidcheck" type="text" name="accountSids">
+            </div>
+            
+                <h5>Select Bundle Types to Check</h5>
+<input type="checkbox" name="regulationBundles" id="selectAll"> <label for="selectAll">Select All</label>
+
+
+  <br>
+ 
+<input type="checkbox" name="regulationBundles" value="RN6433641899984f951173ef1738c3bdd0"> Primary Business Profile<br>
+<input type="checkbox" name="regulationBundles" value="RN7a97559effdf62d00f4298208492a5ea"> STIR / SHAKEN<br>
+<input type="checkbox" name="regulationBundles" value="RNf3db3cd1fe25fcfd3c3ded065c8fea53"> CNAM<br>
+<input type="checkbox" name="regulationBundles" value="RNdfbf3fae0e1107f8aded0e7cead80bf5"> Secondary Business Profile<br>
+<input type="checkbox" name="regulationBundles" value="RNb0d4771c2c98518d916a3d4cd70a8f8b"> A2P<br>
+<input type="checkbox" name="regulationBundles" value="RN806dd6cd175f314e1f96a9727ee271f4"> ISV Starter customer profile<br>
+<input type="checkbox" name="regulationBundles" value="RN670d5d2e282a6130ae063b234b6019c8"> SoleProp (previously ISV Starter A2P)<br>
+<input type="checkbox" name="regulationBundles" value="RN13dc4be8861a10924a79c35eaa4d812c"> Direct Starter customer profile (direct-long tail)<br>
+<input type="checkbox" name="regulationBundles" value="RN63da8244384cf0401c39f5f91e674db5"> Starter A2P (direct customers)<br>
+<input type="checkbox" name="regulationBundles" value="RN92dc6c39189b4d5ad9c6664f39769f90"> Government primary customer profile<br>
+<input type="checkbox" name="regulationBundles" value="RN074d26323ad8ca107761a5edf4191ba7"> Government secondary customer profile<br>
+<input type="checkbox" name="regulationBundles" value="RN936f6140f1864391adca88df5d84cb6d"> Nonprofit primary customer profile<br>
+<input type="checkbox" name="regulationBundles" value="RNaf459d36b007ba6db226cd43a816cfa0"> Nonprofit secondary customer profile<br>
+<input type="checkbox" name="regulationBundles" value="RNa282dd7f3dbef8586501ca2e045e764c"> Toll Free<br>
+<input type="checkbox" name="regulationBundles" value="RN5b3660f9598883b1df4e77f77acefba0"> Voice Integrity<br>
+<input type="checkbox" name="regulationBundles" value="RNca63d1066fbd5e44eac02d0b3cf6d019"> Branded Calling<br>
+<input type="checkbox" name="regulationBundles" value="RNffcb02a20420c81caf596ffc44f69712"> Individual Primary customer profile<br>
+
+<h5>Select How Results Will be Recieved</h5>
+<input type="checkbox" id="LinkBundlesDownload" > Download Results<br>
+<input type="checkbox" id="LinkBundlesDisplay" > Display Results<br>
+<br>
+<input type="button" value="Submit" onclick="performSelectedFeatures()">
+
+                    </div>
+        
+
+        
+
+        <!-- Bulk Assign Numbers -->
+        <h4 class="purpletile"><input type="checkbox" name="feature" class="feature-checkbox" value="bulkAssign" onclick="toggleTextBoxesAndColor('bulkAssign', this)"> Assign Number(s) to Profile(s)</h4><br>
+        <!-- Textboxes for Bulk Assign Numbers -->
+        <div id="bulkAssignTextboxes" class="hidden" style="width: 80%;">
+            <h5>Bundle SID(s)</h5>
+            <textarea id="bundleSIDsInput"  name="bundleSIDs" rows="4" cols="50" style="font-size: 15px;height: 200px; width: 400px;" ></textarea><br><br>
+            <h5>Phone Number(s)</h5>
+             <textarea id="phoneNumbersAssign"  name="phoneNumbers" rows="4" cols="50" style="font-size: 15px;height: 200px; width: 400px;"></textarea><br><br>
+             <h5>Account SID</h5>
+            <input id = "AccountSidinput" type="text" name="accountSids">
+            <h5>Select How Results Will be Recieved</h5>
+            <input type="checkbox" id="AssignNumbersDownload" > Download Results<br>
+            <input type="checkbox" id="AssignNumbersDisplay" > Display Results<br>
+            <br>
+            <input type="button" value="Submit" onclick="performSelectedFeatures()">
+        </div>
+
+        <!-- Remove Numbers from Trust Product or Business Profile -->
+        <h4 class="greentile"><input type="checkbox" class="feature-checkbox" name="feature" value="removeNumbers" onclick="toggleTextBoxesAndColor('removeNumbers', this)"> Remove Number(s) from Profile(s)</h4><br>
+        <!-- Textboxes for Remove Numbers -->
+        <div id="removeNumbersTextboxes" class="hidden" style="width: 80%;">
+            <h5>Bundle SID(s)</h5>
+            <textarea id="bundleSIDsparam"  name="bundleSIDs" rows="4" cols="50" style="font-size: 15px;height: 200px; width: 400px;" ></textarea><br><br>
+            <h5>Phone Number(s)</h5>
+             <textarea id="phoneNumbersRemove"  name="phoneNumbers" rows="4" cols="50" style="font-size: 15px;height: 200px; width: 400px;"></textarea><br><br>
+             <h5>Account SID</h5>
+            <input id = "AccountSidparam" type="text" name="accountSids">
+            <h5>Select How Results Will be Recieved</h5>
+            <input type="checkbox" id="RemoveNumbersDownload" > Download Results<br>
+            <input type="checkbox" id="RemoveNumbersDisplay" > Display Results<br>
+            <br>
+            <input type="button" value="Submit" onclick="performSelectedFeatures()">
+        </div>
+
+        <!-- Delete Trust Profiles/Business Profiles  ADRIAN 
+        <h4 class="yellowtile"><input type="checkbox" class="feature-checkbox" name="feature" value="deleteProfiles" onclick="toggleTextBoxesAndColor('deleteProfiles', this)"> Delete Profile(s)</h4><br>
+     Textboxes for Delete Profiles 
+        <div id="deleteProfilesTextboxes" class="hidden">
+            <h5>Bundle SID(s)</h5>
+            <input type="text" name="bundleSIDs">
+            <br><br>
+            <input type="button" value="Submit" onclick="performSelectedFeatures()">
+        </div>
+-->
+        <!-- Look Up Trust Products Under an Account SID -->
+        <h4 class="orangetile"><input type="checkbox" name="feature" class="feature-checkbox" value="lookupTrustProducts" onclick="toggleTextBoxesAndColor('lookupTrustProducts', this)"> Display all Profiles Under Account</h4><br>
+        <!-- Textboxes for Look Up Trust Products -->
+        <div id="lookupTrustProductsTextboxes" class="hidden" style="width: 80%;">
+            <h5>Account SID(Not Required)</h5>
+            <input id = "AccountSid" type="text" name="accountSids"><br> 
+            <h5>Select How Results Will be Recieved</h5>
+            <input type="checkbox" id="BundlesDownload" > Download Results<br>
+            <input type="checkbox" id="BundlesDisplay" > Display Results<br>
+            <br>
+            <input type="button" value="Submit" onclick="performSelectedFeatures()">
+        </div>
+        
+
+        <!-- Include your JavaScript scripts here if needed -->
+
+        <!-- Submit button to perform selected features -->
+       
+
+        <div id="responseContainer"></div>
+        </div>  
+    </form>
+        <br />
+        <div>
+        <!-- EDIT_CODE -->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <span>We can't wait to see what you build.</span>
+    </footer>
+
+   
+<!-- Script to change input to numbers only -->
+    <script>
+
+    function toggleTextBoxes(feature) {
+        console.log("entered")
+        var textboxes = document.getElementById(feature + "Textboxes");
+  
+        textboxes.classList.toggle("hidden", !textboxes.classList.contains("hidden"));
+    }
+
+function toggleTextBoxesAndColor(featureName, checkbox) {
+    // Call your existing functionality to toggle text boxes
+    console.log(featureName)
+    toggleTextBoxes(featureName);
+
+    // Define the original and the greyed out color
+    const originalColor = ''; // Use '' if you want to revert to the stylesheet's color or set a specific color
+    const greyedOutColor = 'grey';
+
+    // Get all <h4> elements with the class 'feature-header'
+var headers1 = document.querySelectorAll('.darkbluetile');
+var headers2 = document.querySelectorAll('.purpletile');
+var headers3 = document.querySelectorAll('.greentile');
+var headers4 = document.querySelectorAll('.yellowtile');
+var headers5 = document.querySelectorAll('.orangetile');
+
+var allHeaders = [
+    ...headers1,
+    ...headers2,
+    ...headers3,
+    ...headers4,
+    ...headers5
+];
+
+const isChecking = checkbox.checked;
+const allCheckboxes = document.querySelectorAll('.feature-checkbox');
+    allCheckboxes.forEach(function(chk) {
+        // If the current checkbox in the loop is not the one clicked
+        if (chk !== checkbox) {
+            // Disable or enable the checkbox based on the state of the clicked checkbox
+            chk.disabled = isChecking;
+        }
+    });
+    // Loop through all <h4> elements
+    allHeaders.forEach(function(header) {
+        // Check if the current header contains the clicked checkbox
+        if(header.contains(checkbox)) {
+            // If the checkbox is checked
+            if(checkbox.checked) {
+                // Optional: Change the background color of the current <h4> to highlight it
+                header.style.backgroundColor = originalColor; // You might want to set this to a highlight color instead of original
+            } else {
+                // If the checkbox is unchecked, revert to the original color
+                header.style.backgroundColor = originalColor;
+            }
+        } else {
+            // For other <h4> elements, set the background color based on the checkbox checked state
+            header.style.backgroundColor = checkbox.checked ? greyedOutColor : originalColor;
+        }
+    });
+}
+    
+    var selectAllCheckbox = document.getElementById('selectAll');
+    var checkboxes = document.querySelectorAll('input[name="regulationBundles"]');
+
+
+/* CSV functions for */
+
+    
+function convertDicToCSV(data,identifier){
+
+  const headersSet = new Set();
+  // Extracting keys and adding them to headersSet
+  for (const key of Object.keys(data)) {
+    const nestedKeys = Object.keys(data[key]);
+    nestedKeys.forEach(nestedKey => headersSet.add(nestedKey));
+  }
+  const headers = [identifier, ...headersSet];
+
+  // Constructing CSV string
+  let csv = headers.join(',') + '\n';
+
+  // Extracting values for each object
+  for (const key of Object.keys(data)) {
+    const values = headers.map(header => header === identifier ? key : data[key][header] || ''); // Handling missing values
+    csv += values.join(',') + '\n';
+  }
+
+  return csv;
+}
+
+
+
+
+function downloadCSV(csvContent){
+const blob = new Blob([csvContent], { type: 'text/csv' });
+const csvurl = URL.createObjectURL(blob);
+
+const a = document.createElement('a');
+a.href = csvurl;
+a.download = 'data.csv';
+document.body.appendChild(a);
+a.click();
+return document.body.removeChild(a);
+
+}
+
+
+    // Add a click event listener to the "Select All" checkbox
+    selectAllCheckbox.addEventListener('click', function () {
+      // Loop through all checkboxes and set their checked property to the value of "Select All"
+      checkboxes.forEach(function (checkbox) {
+        checkbox.checked = selectAllCheckbox.checked;
+      });
+    });
+  
+
+        function performSelectedFeatures() {
+            // Add your JavaScript logic here to handle the selected features
+
+            var form = document.getElementById("featureForm");
+            console.log(form)
+            var selectedFeatures = Array.from(form.elements['feature'])
+            .filter(checkbox => checkbox.checked && checkbox.name !== "filter")
+            .map(checkbox => checkbox.value);
+            
+            var SelectedBundles = Array.from(form.elements['regulationBundles'])
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+/*
+                const phoneNumberInput = document.getElementById('phoneNumbersInput');
+                const phoneNumberValue = phoneNumberInput.value;
+                //console.log(phoneNumberValue)
+*/
+
+
+            // Example: Log selected features to console
+            if (selectedFeatures == 'lookupTrustProducts'){
+                var accountSidInput = document.getElementById('AccountSid');
+
+           // Accessing the value
+            var accountSidValue = accountSidInput.value;
+            var passwordInput = document.getElementById("auth_token");
+            var password = passwordInput.value;
+
+                getNumberInfo('lookupTrustProducts',accountSidValue,password)
+            }
+            
+            if (selectedFeatures == 'checkLinkedProducts'){
+            var passwordInput = document.getElementById("auth_token");
+            var password = passwordInput.value;
+            
+            var filter = document.getElementById('filterOptions');    
+            if(filter.checked){   
+            var accountSidInput = document.getElementById('AccountSidcheck');
+            var accountSidValue = accountSidInput.value;
+            const bundleSIDInput = document.getElementById('BundleSidcheck');
+            const bundleSIDValue = bundleSIDInput.value;
+            const phoneNumberInput = document.getElementById('phoneNumberInput');
+            const phoneNumberValue = phoneNumberInput.value;
+            
+           
+                getLinkedProfiles(phoneNumberValue,SelectedBundles,'checkLinkedProducts',accountSidValue,bundleSIDValue,password)
+            }
+            
+            else{
+                getLinkedProfiles('',SelectedBundles,'checkLinkedProducts','','',password)
+            }
+            }
+
+            if(selectedFeatures == 'bulkAssign'){
+                
+                assignNumber()
+            }
+
+            if(selectedFeatures == 'removeNumbers'){
+                deleteNumber()
+            }
+
+
+  
+        }
+        //function to call delete function
+        
+        async function assignNumber(){
+            const downloadCheckbox = document.getElementById("AssignNumbersDownload");
+            const displayCheckbox = document.getElementById("AssignNumbersDisplay");
+            
+            const phoneNumberAssignInput = document.getElementById('phoneNumbersAssign');
+            const phoneNumberAssignValue = phoneNumberAssignInput.value;
+       
+
+                
+
+            const bundleInput = document.getElementById('bundleSIDsInput');
+            const bundleValue = bundleInput.value;
+
+            const accountsidInput = document.getElementById('AccountSidinput');
+            const accountValue = accountsidInput.value;
+
+            var passwordInput = document.getElementById("auth_token");
+            var password = passwordInput.value;
+           
+
+            var phoneNumberValue = phoneNumberAssignValue.split("\n");
+            var bundleValuesplit = bundleValue.split("\n");
+            console.log(phoneNumberValue)
+            console.log(bundleValuesplit)
+            console.log(accountValue)
+                        try {
+                const url = 'https://trusthub-5567.twil.io/AssignNumberToProfile.js';
+
+                const response = await fetch(url, {
+                method: 'POST', // Use 'GET' method to include parameters in headers
+                headers: {
+                'X-PhoneNumber': phoneNumberValue,
+                'X-Bundles': bundleValuesplit,
+                'X-Account': accountValue,
+                'X-password': password
+    // Add any other headers you may need
+  },
+});
+
+                const responseData = await response.json();
+                console.log(responseData);
+                if(downloadCheckbox.checked){
+                const csvContent = convertDicToCSV(responseData,"Phone Number")
+                downloadCSV(csvContent)
+                }
+                if(displayCheckbox.checked){
+                    createTable(responseData,"Phone Number");
+                }
+                //updateResponseContainer(responseData);
+            } catch (error) {
+                console.error('Error fetching data:', error.message);
+            }
+
+        
+        }
+
+
+        async function deleteNumber(){
+
+            const downloadCheckbox = document.getElementById("RemoveNumbersDownload");
+            const displayCheckbox = document.getElementById("RemoveNumbersDisplay");
+            
+            const phoneNumberAssignInput = document.getElementById('phoneNumbersRemove');
+            const phoneNumberAssignValue = phoneNumberAssignInput.value;
+       
+
+                
+
+            const bundleInput = document.getElementById('bundleSIDsparam');
+            const bundleValue = bundleInput.value;
+
+            const accountsidInput = document.getElementById('AccountSidparam');
+            const accountValue = accountsidInput.value;
+           
+            var passwordInput = document.getElementById("auth_token");
+            var password = passwordInput.value;
+
+            var phoneNumberValue = phoneNumberAssignValue.split("\n");
+            var bundleValuesplit = bundleValue.split("\n");
+            console.log(phoneNumberValue)
+            console.log(bundleValuesplit)
+            console.log(accountValue)
+                        try {
+                const url = 'https://trusthub-5567.twil.io/RemoveNumberFromProfile';
+
+                const response = await fetch(url, {
+                method: 'POST', // Use 'GET' method to include parameters in headers
+                headers: {
+                'X-PhoneNumber': phoneNumberValue,
+                'X-Bundles': bundleValuesplit,
+                'X-Account': accountValue,
+                'X-password': password
+    // Add any other headers you may need
+  },
+});
+
+                const responseData = await response.json();
+                console.log(responseData);
+                if(downloadCheckbox.checked){
+                const csvContent = convertDicToCSV(responseData,"Phone Number")
+                downloadCSV(csvContent)
+                }
+            if(displayCheckbox.checked){
+                    createTable(responseData,"Phone Number");
+                }
+                //updateResponseContainer(responseData);
+            } catch (error) {
+                console.error('Error fetching data:', error.message);
+            }
+
+        }
+
+
+        async function getNumberInfo(selectedType,accountSidValue,password) {
+            const downloadCheckbox = document.getElementById("BundlesDownload");
+            const displayCheckbox = document.getElementById("BundlesDisplay");
+            try {
+                const url = 'https://trusthub-5567.twil.io/BundlesOnAccount.js';
+
+                const response = await fetch(url, {
+                method: 'POST', // Use 'GET' method to include parameters in headers
+                headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-Type': selectedType,
+                'X-AccountSid': accountSidValue,
+                'X-password': password
+    // Add any other headers you may need
+  },
+});
+
+                const responseData = await response.json();
+                if(downloadCheckbox.checked){
+                const csvContent = convertDicToCSV(responseData,"Bundle SID")
+                console.log(csvContent,"micahfront");
+                downloadCSV(csvContent)
+                }
+                if(displayCheckbox.checked){
+                createTable(responseData,"Bundle SID");
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error.message);
+            }
+        }
+
+        async function getLinkedProfiles(phoneNumberValue, selectedBundles, selectedType,accountSidValue,bundleSID,password) {
+            var phoneNumberValue = phoneNumberValue.split("\n");
+            const downloadCheckbox = document.getElementById("LinkBundlesDownload");
+            const displayCheckbox = document.getElementById("LinkBundlesDisplay");
+            try {
+                const url = 'https://trusthub-5567.twil.io/BundlesLinkedToNumbers.js';
+
+                const response = await fetch(url, {
+                method: 'GET', // Use 'GET' method to include parameters in headers
+                headers: {
+                'Content-Type': 'application/json',
+                'X-PhoneNumber': phoneNumberValue,
+                'X-AccountSIDcheck': accountSidValue,
+                'X-bundleSIDcheck': bundleSID,
+                'X-Bundles': selectedBundles,
+                'X-Type': selectedType,
+                'X-password': password
+    // Add any other headers you may need
+  },
+});
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                
+                const responseData = await response.json();
+                if(downloadCheckbox.checked){
+                const csvContent = convertDicToCSV(responseData,"PN SID")
+                downloadCSV(csvContent)
+                }
+                if(displayCheckbox.checked){
+                createTable(responseData,"PN SID");
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error.message);
+            }
+        }
+
+
+
+
+/*
+function createTable(data,identifier) {
+    const responseContainer = document.getElementById("responseContainer");
+    const table = document.createElement("table");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+
+    // Extract phone numbers from the keys
+    const phoneNumbers = Object.keys(data);
+ 
+    // Extract column headers from the first profile
+    const columns = Array.from(
+  new Set(
+    phoneNumbers.reduce((allKeys, phoneNumber) => {
+      const profile = data[phoneNumber];
+      return allKeys.concat(Object.keys(profile));
+    }, [])
+  )
+); //issueeeeeee
+
+    // Add an extra column for phone number (numberSID)
+    columns.unshift(identifier);
+
+    // Create table header
+    const headerRow = document.createElement("tr");
+    columns.forEach(column => {
+        const th = document.createElement("th");
+        th.textContent = column;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create table body
+    phoneNumbers.forEach(phoneNumber => {
+        const profile = data[phoneNumber];
+        const row = document.createElement("tr");
+
+        // Add the phone number to the first cell
+        const phoneNumberCell = document.createElement("td");
+        phoneNumberCell.textContent = phoneNumber;
+        row.appendChild(phoneNumberCell);
+
+        columns.slice(1).forEach(column => {
+            const td = document.createElement("td");
+            td.textContent = profile[column] || ''; // Handle undefined values
+            row.appendChild(td);
+        });
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    responseContainer.innerHTML = '';
+    responseContainer.appendChild(table);
+}
+*/
+function createTable(data, identifier) {
+    const responseContainer = document.getElementById("responseContainer");
+    const table = document.createElement("table");
+    table.style.borderCollapse = "collapse";
+    table.style.width = "100%";
+
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+
+    // Extract column headers from the objects
+    const columns = new Set();
+    Object.values(data).forEach(obj => {
+        Object.keys(obj).forEach(key => {
+            columns.add(key);
+        });
+    });
+
+    // Add the identifier column as the first column
+    const columnHeaders = [identifier, ...columns];
+
+    // Create table header
+    const headerRow = document.createElement("tr");
+    columnHeaders.forEach(column => {
+        const th = document.createElement("th");
+        th.textContent = column;
+        th.style.border = "1px solid #dddddd";
+        th.style.textAlign = "left";
+        th.style.padding = "8px";
+        th.style.backgroundColor = "#f2f2f2";
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create table body
+    Object.entries(data).forEach(([id, obj]) => {
+        const row = document.createElement("tr");
+
+        // Add identifier to the first cell
+        const identifierCell = document.createElement("td");
+        identifierCell.textContent = id;
+        identifierCell.style.border = "1px solid #dddddd";
+        identifierCell.style.textAlign = "left";
+        identifierCell.style.padding = "8px";
+        row.appendChild(identifierCell);
+
+        // Add object properties to subsequent cells
+        columnHeaders.slice(1).forEach(column => {
+            const td = document.createElement("td");
+            td.textContent = obj[column] || ''; // Handle undefined values
+            td.style.border = "1px solid #dddddd";
+            td.style.textAlign = "left";
+            td.style.padding = "8px";
+            row.appendChild(td);
+        });
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    responseContainer.innerHTML = '';
+    responseContainer.appendChild(table);
+}
+
+
+
+
+
+
+    </script>
+  </body>
+</html> 
