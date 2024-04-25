@@ -91,7 +91,7 @@ async function getRAsid(bundle,aSID,aToken) {
     try {
         const response = await client.trusthub.v1.trustProducts(bundle)
             .trustProductsChannelEndpointAssignment
-            .page({ pageSize: 5 });
+            .page({ pageSize: 20 });
         
         const data = await paginationrawBundle(response,aSID,aToken)
 
@@ -116,7 +116,7 @@ async function getBVsid(bundle,aSID,aToken) {
          
         const response = await client.trusthub.v1.customerProfiles(bundle)
             .customerProfilesChannelEndpointAssignment
-            .page({ pageSize: 5 });
+            .page({ pageSize: 20 });
 
         const data = await paginationrawBundle(response,aSID,aToken)
 
@@ -253,7 +253,7 @@ async function pn_sids(numbers, inputSID) {
     const sids = {};
 
     // Retrieve incoming phone numbers and populate sids object
-    const response = await client.incomingPhoneNumbers.page({ pageSize: 5})
+    const response = await client.incomingPhoneNumbers.page({ pageSize: 20})
     const data = await paginationRaw(response,account_data[0],account_data[1])
     // Retrieve incoming phone numbers and populate sids object
 
